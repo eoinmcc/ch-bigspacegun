@@ -1,24 +1,23 @@
 //
 //  AppDelegate.h
-//  c2dtest1
+//  bigspacegun
 //
 //  Created by Eoin McCarthy on 6/05/12.
-//  Copyright __MyCompanyName__ 2012. All rights reserved.
+//  Copyright (c) 2012 cocoaheads. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "cocos2d.h"
+#import "BaseAppController.h"
+#import "MainMenuScene.h"
+#import "Game.h"
 
-@interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
+@interface AppController : BaseAppController
 {
-	UIWindow *window_;
-	UINavigationController *navController_;
-
-	CCDirectorIOS	*director_;							// weak ref
+    MainMenuScene* _mainMenuScene;
+    GameScene* _gameScene;
 }
+@property (nonatomic, retain) MainMenuScene *mainMenuScene;
+@property (nonatomic, retain) GameScene *gameScene;
 
-@property (nonatomic, retain) UIWindow *window;
-@property (readonly) UINavigationController *navController;
-@property (readonly) CCDirectorIOS *director;
-
+- (void)launchNewGame;
 @end
